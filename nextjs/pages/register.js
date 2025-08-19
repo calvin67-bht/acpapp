@@ -185,7 +185,7 @@ export default function AuthPage() {
      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
          {snackbarMessage}
-       </Alert>
+       </Alert>   
      </Snackbar>
    </Grid>
  );
