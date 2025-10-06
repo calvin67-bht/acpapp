@@ -2,9 +2,12 @@ from typing import Union
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from database import *
-from routes.users import router
+from routes.user import router
 from routes.book import router as books_router
+from routes.equipment_stock import router as equipment_router
 from fastapi.middleware.cors import CORSMiddleware
+
+
 
 
 app = FastAPI()
@@ -19,7 +22,7 @@ app.add_middleware(
 
 app.include_router(router, prefix="/api")
 app.include_router(books_router)
-
+app.include_router(equipment_router)
 @app.on_event("startup")
 async def startup():
     await connect_db()
